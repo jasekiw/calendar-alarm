@@ -1,0 +1,35 @@
+# Gradle and Kotlin
+.gradle/
+.kotlin/
+build/
+
+# Machine-specific config (SDK path, signing secrets)
+local.properties
+keystore.properties
+*.jks
+*.keystore
+
+# Build outputs
+*.apk
+*.aab
+*.ap_
+*.dex
+output-metadata.json
+captures/
+.cxx/
+.externalNativeBuild/
+
+# Service configs that embed API keys
+google-services.json
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.cursor/
+
+# OS and logs
+.DS_Store
+Thumbs.db
+*.log
+*.hprof
