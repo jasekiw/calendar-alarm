@@ -157,6 +157,47 @@ adb shell am start -n com.jason.calendaralarm/.MainActivity
 
 Once installed, the phone doesn't need to stay connected. The app runs on its own.
 
+### 📦 Download a release
+
+Every [GitHub release](https://github.com/jasekiw/calendar-alarm/releases) has a signed
+`calendar-alarm-<version>.apk` attached.
+1. Download it on your phone and open it.
+2. Allow your browser or file manager to install unknown apps when Android asks.
+
+Releases are all signed with the same key, so installing a newer APK updates the app in place. Your setup and
+alarms carry over.
+
+> [!NOTE]
+> A debug build installed with `./gradlew installDebug` is signed with a different key. Uninstall it once before
+> installing a release APK, or Android will refuse the install.
+
+### 🚀 Publish a release
+
+Publishing a release on GitHub triggers [`.github/workflows/release.yml`](.github/workflows/release.yml), which:
+1. builds a minified, signed release APK;
+2. verifies its signature;
+3. attaches it to the release.
+
+```bash
+gh release create v1.0.0 --generate-notes
+```
+
+- **Version name:** taken from the tag, so `v1.0.0` becomes `1.0.0`.
+- **Version code:** the workflow run number, so each release can update the previous one.
+- **Rebuilding:** to rebuild an existing release, run the workflow manually from the Actions tab and enter the tag.
+
+Signing uses four repository secrets:
+
+| Secret | Contents |
+|---|---|
+| `SIGNING_KEYSTORE_BASE64` | The release keystore, base64-encoded. |
+| `SIGNING_STORE_PASSWORD` | The keystore password. |
+| `SIGNING_KEY_ALIAS` | The key alias. |
+| `SIGNING_KEY_PASSWORD` | The key password. |
+
+To build a signed release locally, create a gitignored `keystore.properties` in the project root with `storeFile`,
+`storePassword`, `keyAlias` and `keyPassword`, then run `./gradlew assembleRelease`.
+
 ## ⚙️ How it works
 
 Calendar Alarm never runs a background service and keeps no copy of your events. It reads the on-device calendar
