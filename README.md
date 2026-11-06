@@ -1,27 +1,50 @@
-# Calendar Alarm
+<h1 align="center">
+  <img src="docs/icon.svg" alt="" width="64" align="center">
+  Calendar Alarm
+</h1>
 
-An Android app that rings a real alarm, not just a notification, when chosen calendar events start.
+<p align="center">
+  <strong>Real alarms, not just notifications, for the calendar events that matter.</strong>
+</p>
+
+<p align="center">
+  <img alt="Android 8.0+" src="https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white">
+  <img alt="Target SDK 37" src="https://img.shields.io/badge/Target%20SDK-37-3F51B5">
+  <img alt="Kotlin 2.4" src="https://img.shields.io/badge/Kotlin-2.4-7F52FF?logo=kotlin&logoColor=white">
+  <img alt="Jetpack Compose" src="https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4?logo=jetpackcompose&logoColor=white">
+  <img alt="Gradle 9.8" src="https://img.shields.io/badge/Gradle-9.8-02303A?logo=gradle&logoColor=white">
+</p>
+
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-usage">Usage</a> •
+  <a href="#-building-and-installing">Build &amp; install</a> •
+  <a href="#%EF%B8%8F-how-it-works">How it works</a> •
+  <a href="#-troubleshooting">Troubleshooting</a>
+</p>
+
+---
 
 Your calendar already knows when things happen. Calendar Alarm turns selected events into loud, snoozable,
 full-screen alarms, so you can't miss them because a notification slipped by.
 
-## Features
+## ✨ Features
 
-- **Rings at event start** for any timed event that is either:
+- ⏰ **Rings at event start** for any timed event that is either:
   - in a calendar named **Alarm** (any capitalization), or
   - tagged **`#alarm`** in its title or description, in any calendar.
-- **A real alarm experience.** It uses your system alarm sound and alarm volume, vibrates, and shows a
+- 🔊 **A real alarm experience.** It uses your system alarm sound and alarm volume, vibrates, and shows a
   full-screen alarm over the lock screen. It loops until you act on it, then stops on its own after 10 minutes.
-- **Snooze for 5 minutes.** A silent "Snoozed" notification shows a live countdown and a **Dismiss alarm**
+- 😴 **Snooze for 5 minutes.** A silent "Snoozed" notification shows a live countdown and a **Dismiss alarm**
   button that cancels the re-ring.
-- **Stays in sync without being opened.** Alarms are rescheduled automatically when your calendar changes,
+- 🔄 **Stays in sync without being opened.** Alarms are rescheduled automatically when your calendar changes,
   after a reboot, after an app update, and after each alarm rings.
-- **Handles recurring events.** Each occurrence of a repeating event rings.
-- **Guided setup.** A step-by-step checklist walks you through every permission and system setting the app
+- 🔁 **Handles recurring events.** Each occurrence of a repeating event rings.
+- ✅ **Guided setup.** A step-by-step checklist walks you through every permission and system setting the app
   needs to work reliably, linking straight to the right screen.
-- **A built-in test.** "Test alarm in 10 seconds" lets you check everything without creating an event.
+- 🧪 **A built-in test.** "Test alarm in 10 seconds" lets you check everything without creating an event.
 
-## Usage
+## 📱 Usage
 
 1. Install the app and open it.
 2. Complete the setup checklist on the home screen. Each step tells you exactly what to tap.
@@ -33,7 +56,7 @@ full-screen alarms, so you can't miss them because a notification slipped by.
 
 When an alarm rings, choose **Snooze 5 min** or **Dismiss**, from the notification or the full-screen screen.
 
-### Matching rules
+### 🎯 Matching rules
 
 | Rule | Detail |
 |---|---|
@@ -43,23 +66,23 @@ When an alarm rings, choose **Snooze 5 min** or **Dismiss**, from the notificati
 | Canceled events | Never ring. |
 | Same start time | Events that start at the same moment ring together, each with its own notification. |
 
-## Setup checklist
+## 🛡️ Setup checklist
 
 The home screen won't show your events until every step is complete. Steps already allowed show a check mark,
 and statuses refresh whenever you return to the app.
 
-| Step | Why it's needed |
-|---|---|
-| Read your calendar | To find upcoming events. |
-| Show notifications | The alarm is delivered as a high-priority notification. |
-| Schedule exact alarms | To fire at the exact start time instead of a delayed, batched time. Off by default on Android 14+. |
-| Full-screen alarms | To take over the screen while the phone is locked. |
-| Unrestricted battery | So battery saving doesn't delay or block the background calendar-change checks. |
-| Keep active when unused | Stops Android from pausing the app and removing its permissions after months without opening it. |
+| | Step | Why it's needed |
+|:-:|---|---|
+| 📅 | Read your calendar | To find upcoming events. |
+| 🔔 | Show notifications | The alarm is delivered as a high-priority notification. |
+| ⏱️ | Schedule exact alarms | To fire at the exact start time instead of a delayed, batched time. Off by default on Android 14+. |
+| 🖥️ | Full-screen alarms | To take over the screen while the phone is locked. |
+| 🔋 | Unrestricted battery | So battery saving doesn't delay or block the background calendar-change checks. |
+| 💤 | Keep active when unused | Stops Android from pausing the app and removing its permissions after months without opening it. |
 
-## Building and installing
+## 🔨 Building and installing
 
-### Requirements
+### 📋 Requirements
 
 | Tool | Version |
 |---|---|
@@ -71,7 +94,7 @@ and statuses refresh whenever you return to the app.
 Built with Kotlin 2.4, Jetpack Compose with Material 3, and Android Gradle Plugin 9.5. AGP 9's built-in Kotlin
 support is used, so there is no separate Kotlin Android plugin.
 
-### First-time tooling setup (Linux, no Android Studio)
+### 🧰 First-time tooling setup (Linux, no Android Studio)
 
 Android Studio works fine and handles all of this for you. To work from the command line instead:
 
@@ -103,21 +126,21 @@ org.gradle.java.installations.paths=/path/to/jdk-21
 
 Gradle downloads any missing build tools automatically on the first build.
 
-### Build
+### 🏗️ Build
 
 ```bash
 ./gradlew assembleDebug
 # APK: app/build/outputs/apk/debug/app-debug.apk
 ```
 
-### Install on a phone
+### 📲 Install on a phone
 
 Enable **Developer options** on the phone (Settings > About phone > tap **Build number** 7 times), then pick a
 connection.
 
-**USB:** turn on **USB debugging**, plug in, and accept the prompt on the phone.
+🔌 **USB:** turn on **USB debugging**, plug in, and accept the prompt on the phone.
 
-**Wireless (Android 11+):** turn on **Wireless debugging**, tap **Pair device with pairing code**, then:
+📶 **Wireless (Android 11+):** turn on **Wireless debugging**, tap **Pair device with pairing code**, then:
 
 ```bash
 adb mdns services                  # finds the pairing and connect ports
@@ -134,7 +157,7 @@ adb shell am start -n com.jason.calendaralarm/.MainActivity
 
 Once installed, the phone doesn't need to stay connected. The app runs on its own.
 
-## How it works
+## ⚙️ How it works
 
 Calendar Alarm never runs a background service and keeps no copy of your events. It reads the on-device calendar
 fresh each time and keeps **one** system alarm pointed at the next event that should ring.
@@ -176,7 +199,7 @@ fresh each time and keeps **one** system alarm pointed at the next event that sh
 - **Snooze.** Each snooze is its own one-off `setAlarmClock` alarm, separate from the next-event chain. That keeps
   snoozing one event from delaying another.
 
-### Project structure
+### 🗂️ Project structure
 
 ```text
 app/src/main/java/com/jason/calendaralarm/
@@ -192,7 +215,7 @@ app/src/main/java/com/jason/calendaralarm/
     └── CalendarChangeJob.kt     Reschedules when the calendar provider changes
 ```
 
-## Limitations
+## ⚠️ Limitations
 
 - **Force stop disables everything.** Settings > Apps > Force stop puts the app in Android's stopped state, which
   clears its alarms and blocks background work until you open it again. No app can opt out of this. Swiping the
@@ -204,9 +227,9 @@ app/src/main/java/com/jason/calendaralarm/
   syncs them to the device.
 - **Do Not Disturb** lets alarms through by default. If you've changed that setting, alarms may be silenced.
 
-## Troubleshooting
+## 🩺 Troubleshooting
 
-**A new calendar or its events don't show up.**
+**🗓️ A new calendar or its events don't show up.**
 Calendar Alarm reads the phone's local calendar database. For a newly created Google calendar, the phone often
 syncs the calendar itself first and its events later.
 1. In Google Calendar, go to Settings, tap the calendar, and make sure **Sync** is on.
@@ -215,17 +238,17 @@ syncs the calendar itself first and its events later.
 
 If the event appears in the Google Calendar app on the phone, Calendar Alarm can see it too.
 
-**An alarm didn't ring.**
+**🔕 An alarm didn't ring.**
 - Open the app and check every setup step has a check mark.
 - Check that the **Next alarm** card shows the event you expect.
 - Make sure the event isn't all-day.
 - Make sure the app wasn't force-stopped since you last opened it.
 
-**Can't find the app when searching "calendar."**
+**🔍 Can't find the app when searching "calendar."**
 The Pixel Launcher's search favors the exact match, Google Calendar. Search for "calendar a," or add the app to
 your home screen.
 
-**Check what's scheduled from a computer:**
+**💻 Check what's scheduled from a computer:**
 
 ```bash
 adb shell dumpsys alarm | grep -A3 'com.jason.calendaralarm'
